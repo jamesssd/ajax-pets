@@ -10,6 +10,7 @@
 
         $("#pet_likes").hide();
         $("#pet_eats").hide();
+        $("#pet_name").hide();
 
         $("#pet_feels").click(function(e){
             // alert("feels is clicked");
@@ -20,7 +21,12 @@
             // alert("feels is clicked");
             $("#pet_eats").slideDown(200);
         });
-       
+
+        $("#pet_eats").click(function(e){
+            // alert("feels is clicked");
+            $("#pet_name").slideDown(200);
+        });
+        
 
         $('#myForm').submit(function(e){
         //    alert("hi!  I'm jQuery!");
@@ -29,16 +35,42 @@
             let feels = $("input[name=feels]:checked").val();
             let likes = $("input[name=likes]:checked").val();
             let eats = $("input[name=eats]:checked").val();
+            // let nickName = $("input[name=nickName]").val();
             let pet = ""; //store pet
+            // let showName = "";
             
             //    alert(feels);
 
             if(feels == "fluffy" && likes == "petted" && eats == "carrots"){
-                pet = "rabbit";
+                pet = "Rabbit!";
+            }
+
+            if(feels == "fluffy" && likes == "petted" && eats == "pets"){
+                pet = "Lion!";
+            }
+            
+            if(feels == "fluffy" && likes == "ridden" && eats == "carrots"){
+                pet = "Horse";
+            }
+            
+            if(feels == "fluffy" && likes == "ridden" && eats == "pets"){
+                pet = "Bear";
             }
 
             if(feels == "scaly" && likes == "ridden" && eats == "pets"){
-                pet = "velociraptor";
+                pet = "Velociraptor";
+            }
+
+            if(feels == "scaly" && likes == "ridden" && eats == "carrots"){
+                pet = "Turtle";
+            }
+
+            if(feels == "scaly" && likes == "petted" && eats == "carrots"){
+                pet = "Brachiosaurus";
+            }
+
+            if(feels == "scaly" && likes == "petted" && eats == "pets"){
+                pet = "Tyrannosaurus";
             }
             
             // create text of pet
@@ -47,6 +79,7 @@
             output += `<p>Your pet feels: ${feels}</p>`;
             output += `<p>Your pet likes to be: ${likes}</p>`;
             output += `<p>Your pet  like to eat: ${eats}</p>`;
+            // output += `<p>Your pet's name is: ${showName}</p>`;
             $("#output").html(output);
 
             $('#pet').load(`includes/content.html #${pet}`);
@@ -67,21 +100,30 @@
        <input type="radio" name="feels" value="fluffy" required="required"> fluffy <br />
        <input type="radio" name="feels" value="scaly" required="required"> scaly <br />
    </div>
+   
    <div id="pet_likes">
        <h3>Likes</h3>
        <p>Please tell us what your pet will like:</p>
        <input type="radio" name="likes" value="petted" required="required"> to be petted <br />
        <input type="radio" name="likes" value="ridden"> to be ridden <br />
    </div>
-       <div id="pet_eats">
+    
+   <div id="pet_eats">
        <h3>Eats</h3>
        <p>Please tell us what your pet likes to eat:</p>
        <input type="radio" name="eats" value="carrots" required="required"> carrots <br />
        <input type="radio" name="eats" value="pets"> other people's pets <br />
    </div>
+   
+   <!-- <div id='pet_name'>
+       <h3>Name</h3>
+       <p>What is your pets name?</p>
+       <input type="text" name="nickName" required="required"> <br/>
+   </div> -->
   
    <input type="submit" value="submit it!" />
-   <div id="pet">Picture of pet goes here!</div>
+   <!-- <div id="pet">Picture of pet goes here!</div> -->
+   <div id='show'>Name of pet goes here!</div>
    <div id="output">Output goes here!</div>
 </form>
 </body>
