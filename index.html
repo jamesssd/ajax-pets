@@ -72,6 +72,10 @@
             if(feels == "Scaly" && likes == "Petted" && eats == "Pets"){
                 pet = "Tyrannosaurus";
             }
+
+            if(feels == "Light" && likes == "Fly" && eats == "Fruits"){
+                pet = "Butterfree";
+            }
             
             // create text of pet
             let output = "";
@@ -99,6 +103,7 @@
        <p>Please choose how you would like your pet to feel:</p>
        <input type="radio" name="feels" value="Fluffy" required="required"> Fluffy <br />
        <input type="radio" name="feels" value="Scaly" required="required"> Scaly <br />
+       <input type="radio" name="feels" value="Light" required="required"> Light <br />
    </div>
    
    <div id="pet_likes">
@@ -106,6 +111,7 @@
        <p>Please tell us what your pet will like:</p>
        <input type="radio" name="likes" value="Petted" required="required"> to be Petted <br />
        <input type="radio" name="likes" value="Ridden"> to be Ridden <br />
+       <input type="radio" name="likes" value="Fly"> to Fly <br />
    </div>
     
    <div id="pet_eats">
@@ -113,6 +119,7 @@
        <p>Please tell us what your pet likes to eat:</p>
        <input type="radio" name="eats" value="Carrots" required="required"> Carrots <br />
        <input type="radio" name="eats" value="Pets"> other people's Pets <br />
+       <input type="radio" name="eats" value="Fruits"> Fruits <br />
    </div>
    
    <!-- <div id='pet_name'>
