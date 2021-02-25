@@ -2,10 +2,10 @@
 <html>
 <head>
  
-   <meta name="robots" content="noindex,nofollow">
-   <title>AJAX Pet Starter</title>
-   <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-   <script type="text/javascript">
+    <meta name="robots" content="noindex,nofollow">
+    <title>AJAX Pet Starter</title>
+    <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">
        $("document").ready(function(){
 
         $("#pet_likes").hide();
@@ -37,12 +37,16 @@
             let eats = $("input[name=eats]:checked").val();
             // let nickName = $("input[name=nickName]").val();
             let pet = ""; //store pet
-            let showNxame = $("input[name=nickName]").val();
+            let showName = $("input[name=nickName]").val();
             
             //    alert(feels);
 
             if(feels == "Fluffy" && likes == "Petted" && eats == "Carrots"){
                 pet = "Rabbit!";
+            }
+
+            if(feels == "Fluffy" && likes == "Petted" && eats == "Fruits"){
+                pet = "Pikachu!";
             }
 
             if(feels == "Fluffy" && likes == "Petted" && eats == "Pets"){
@@ -57,8 +61,28 @@
                 pet = "Bear";
             }
 
+            if(feels == "Fluffy" && likes == "Ridden" && eats == "Fruits"){
+                pet = "Mareep";
+            }
+
+            if(feels == "Fluffy" && likes == "Fly" && eats == "Carrots"){ 
+                pet = "Pidgeotto";
+            }
+
+            if(feels == "Fluffy" && likes == "Fly" && eats == "Fruits"){ 
+                pet = "Fearow";
+            }
+
+            if(feels == "Fluffy" && likes == "Fly" && eats == "Pets"){ 
+                pet = "Zapdos";
+            }
+
             if(feels == "Scaly" && likes == "Ridden" && eats == "Pets"){
                 pet = "Velociraptor";
+            }
+
+            if(feels == "Scaly" && likes == "Ridden" && eats == "Fruits"){
+                pet = "Sandslash";
             }
 
             if(feels == "Scaly" && likes == "Ridden" && eats == "Carrots"){
@@ -69,25 +93,70 @@
                 pet = "Brachiosaurus";
             }
 
+            if(feels == "Scaly" && likes == "Petted" && eats == "Fruits"){
+                pet = "Shellder";
+            }
+
             if(feels == "Scaly" && likes == "Petted" && eats == "Pets"){
                 pet = "Tyrannosaurus";
             }
 
-            if(feels == "Light" && likes == "Fly" && eats == "Fruits"){
+            if(feels == "Scaly" && likes == "Fly" && eats == "Pets"){
+                pet = "Kommo-o";
+            }
+
+            if(feels == "Scaly" && likes == "Fly" && eats == "Carrots"){
+                pet = "Dragonite";
+            }
+
+            if(feels == "Scaly" && likes == "Fly" && eats == "Fruits"){
+                pet = "Garchomp";
+            }
+            if(feels == "Exotic" && likes == "Fly" && eats == "Fruits"){
                 pet = "Butterfree";
             }
 
-            // if(feels == "Light" && likes == "Petted" && eats == "Fruits"){
-            //     pet = "Butterfree";
-            // }
+            if(feels == "Exotic" && likes == "Fly" && eats == "Carrots"){
+                pet = "Emolga";
+            }
+
+            if(feels == "Exotic" && likes == "Fly" && eats == "Pets"){
+                pet = "Mega Charizard";
+            }
+
+            if(feels == "Exotic" && likes == "Ridden" && eats == "Pets"){ 
+                pet = "Onix"; 
+            }
+
+            if(feels == "Exotic" && likes == "Ridden" && eats == "Carrots"){ 
+                pet = "Snorlax";
+            }
+
+            if(feels == "Exotic" && likes == "Ridden" && eats == "Fruits"){ 
+                pet = "Snorlax";
+            }
+
+            if(feels == "Exotic" && likes == "Petted" && eats == "Pets"){ 
+                pet = "Onix";
+            }
+
+            if(feels == "Exotic" && likes == "Petted" && eats == "Fruits"){ 
+                pet = "Onix";
+            }
+
+            if(feels == "Exotic" && likes == "Petted" && eats == "Carrots"){ 
+                pet = "Snorlax";
+            }
+
             
             // create text of pet
             let output = "";
             output += `<p>Your pet is a : ${pet}</p>`;
+            output += `<p>Your pet's name is: ${showName}</p>`;
             output += `<p>Your pet feels: ${feels}</p>`;
             output += `<p>Your pet likes to be: ${likes}</p>`;
             output += `<p>Your pet  like to eat: ${eats}</p>`;
-            output += `<p>Your pet's name is: ${showName}</p>`;
+            
             $("#output").html(output);
 
             $('#pet').load(`includes/content.html #${pet}`);
@@ -107,7 +176,7 @@
        <p>Please choose how you would like your pet to feel:</p>
        <input type="radio" name="feels" value="Fluffy" required="required"> Fluffy <br />
        <input type="radio" name="feels" value="Scaly" required="required"> Scaly <br />
-       <input type="radio" name="feels" value="Light" required="required"> Light <br />
+       <input type="radio" name="feels" value="Exotic" required="required"> Exotic <br />
    </div>
    
    <div id="pet_likes">
@@ -126,13 +195,15 @@
        <input type="radio" name="eats" value="Fruits"> Fruits <br />
    </div>
    
-   <div id='pet_name'>
+   <!-- <div id='pet_name'>
        <h3>Name</h3>
        <p>What is your Pets name?</p>
-       <input type="text" name="nickName" required="required"> <br/>
-   </div>
+       <input type="text" name="nickName" size="20" required="required"> <br/>
+   </div> -->
   
    <input type="submit" value="submit it!" />
+   <br>
+   <button onClick="window.location.reload()">Refresh</button>
    <div id="pet">Picture of pet goes here!</div>
    <!-- <div id='show'>Name of pet goes here!</div> -->
    <div id="output">Output goes here!</div>
