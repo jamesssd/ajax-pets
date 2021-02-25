@@ -37,7 +37,7 @@
             let eats = $("input[name=eats]:checked").val();
             // let nickName = $("input[name=nickName]").val();
             let pet = ""; //store pet
-            // let showName = "";
+            let showNxame = $("input[name=nickName]").val();
             
             //    alert(feels);
 
@@ -76,6 +76,10 @@
             if(feels == "Light" && likes == "Fly" && eats == "Fruits"){
                 pet = "Butterfree";
             }
+
+            if(feels == "Light" && likes == "Petted" && eats == "Fruits"){
+                pet = "Butterfree";
+            }
             
             // create text of pet
             let output = "";
@@ -83,7 +87,7 @@
             output += `<p>Your pet feels: ${feels}</p>`;
             output += `<p>Your pet likes to be: ${likes}</p>`;
             output += `<p>Your pet  like to eat: ${eats}</p>`;
-            // output += `<p>Your pet's name is: ${showName}</p>`;
+            output += `<p>Your pet's name is: ${showName}</p>`;
             $("#output").html(output);
 
             $('#pet').load(`includes/content.html #${pet}`);
@@ -122,11 +126,11 @@
        <input type="radio" name="eats" value="Fruits"> Fruits <br />
    </div>
    
-   <!-- <div id='pet_name'>
+   <div id='pet_name'>
        <h3>Name</h3>
        <p>What is your Pets name?</p>
        <input type="text" name="nickName" required="required"> <br/>
-   </div> -->
+   </div>
   
    <input type="submit" value="submit it!" />
    <div id="pet">Picture of pet goes here!</div>
